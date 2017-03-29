@@ -10,10 +10,10 @@ package tagver3;
  * @author Zack
  */
 public class Accessories extends Items{
-    private String Name;
+    
     private String description;
     private int heal;
-
+    private String Name;
     public Accessories(String Name, String description) {
         this.Name = Name;
         this.description = description;

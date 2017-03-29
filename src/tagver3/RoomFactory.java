@@ -16,14 +16,8 @@ public class RoomFactory {
         // initalise room
         Room[][] roomMatrix = new Room[3][3];
        
-        
-        // initalise items for rooms
-        Accessories sword = new Accessories("Sword", "A magic sword that is most effective for x type of enemy");
-        sword.setDamage(5);
-        
-        Accessories gun = new Accessories("Gun", "A Gun that has a high damage on x type of enemy");
-        gun.setDamage(10);
-
+        Accessories[] newItems = new AccessFactory().createItems();
+      
         // initalise position for each room
         roomMatrix[0][0] = new Room(1, "\n"
                     + "--------------------------------------------------------------------\n"
@@ -124,12 +118,15 @@ public class RoomFactory {
         // door west == victory ???;
         
         
-        // SET ITEMS ON EACH ROOM
+        // SET ITEMS ON EACH ROOM 
+        // PROBLEM ?? SO FAR I CAN ONLY HAVE ONE ITEM PER ROOM
         
-        // DOOR 1  
-        roomMatrix[0][0].setRoomItem(gun);
+        // DOOR 1
+        
+        roomMatrix[0][0].setRoomItem(newItems);
+        //roomMatrix[0][0].setRoomItem(newItems[0]);
         // DOOR 2
-        roomMatrix[0][0].setRoomItem(sword);
+        //roomMatrix[0][1].setRoomItem(newItems[1]);
         // DOOR 3
         // DOOR 4
         // DOOR 5
@@ -140,4 +137,7 @@ public class RoomFactory {
         
         return roomMatrix;
     }
+    
+    // mix items for each room
+    
 }
