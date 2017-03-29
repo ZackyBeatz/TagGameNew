@@ -17,6 +17,7 @@ public class RoomFactory {
         Room[][] roomMatrix = new Room[3][3];
        
         Accessories[] newItems = new AccessFactory().createItems();
+        Accessories[] mixItems1 = new AccessFactory().mixedItems1();
       
         // initalise position for each room
         roomMatrix[0][0] = new Room(1, "\n"
@@ -123,8 +124,7 @@ public class RoomFactory {
         
         // DOOR 1
         
-        roomMatrix[0][0].setRoomItem(newItems);
-        //roomMatrix[0][0].setRoomItem(newItems[0]);
+        roomMatrix[0][0].setRoomItem(mixItems1);
         // DOOR 2
         //roomMatrix[0][1].setRoomItem(newItems[1]);
         // DOOR 3
@@ -138,6 +138,6 @@ public class RoomFactory {
         return roomMatrix;
     }
     
-    // mix items for each room
+    
     
 }

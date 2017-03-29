@@ -22,17 +22,18 @@ public class Player {
     private Room location;
     private int roomNr;
     private int playerGold;
+    private Accessories[] pickUp;
+
+    public Accessories[] getPickUp() {
+        return pickUp;
+    }
+
+    public void setPickUp(Accessories[] pickUp) {
+        this.pickUp = pickUp;
+    }
     
-    private Items[]  playerInventory;
-
-    public Items[] getPlayerInventory() {
-        return playerInventory;
-    }
-
-    public void setPlayerInventory(Items[] playerInventory) {
-        this.playerInventory = playerInventory;
-        
-    }
+    
+    
     
 
     

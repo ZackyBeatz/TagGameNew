@@ -135,6 +135,15 @@ public class GameController {
         n1.setLocation(nextRoom);
 
         n1.setRoomNr(n1.getLocation().getCurrentRoom());
+        
+        
+        
+        
+        // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
+        n1.setPickUp(n1.getLocation().getRoomItem());
+        
+        // ACCESSING THE FIRST ITEM ON THE ARRAY OF ITEMS PICKED UP FROM A ROOM
+        n1.getPickUp()[0].getHeal();
 
         int gold = nextRoom.getGold();
         int health = n1.getHealth();

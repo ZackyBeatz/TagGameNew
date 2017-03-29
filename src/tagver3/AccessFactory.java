@@ -22,16 +22,13 @@ public class AccessFactory {
         itemArr[1] = new Accessories("Gun", "A Gun that has a high damage on x type of enemy");
         itemArr[1].setDamage(10);
         
-        itemArr[2] = new Accessories("Heal Potion", "Heals player");
-        itemArr[2].setHeal(10);
-        
        
         
         
         return itemArr;
     }
     
-    // Mixed items for each room
+    // Mixing Items for each room
     
     public Accessories[] mixedItems1() {
         
