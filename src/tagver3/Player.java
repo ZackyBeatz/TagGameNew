@@ -7,27 +7,7 @@ import java.util.List;
  *
  * @author Zack
  */
-public class Player extends Inventory{
-
-    @Override
-    public int getInventorySize() {
-        return super.getInventorySize(); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Accessories getItemAt(int index) {
-        return super.getItemAt(index); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Accessories removeItem(Accessories item) {
-        return super.removeItem(item); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void addItem(Accessories a1) {
-        super.addItem(a1); //To change body of generated methods, choose Tools | Templates.
-    }
+public class Player{
 
     String name;
     int health;
@@ -35,35 +15,19 @@ public class Player extends Inventory{
     private int roomNr;
     private int playerGold;
     private Accessories[] pickUp;
-    private List <Accessories> newList;
+    private List <Accessories> inventory;
     
     public Player(String name, int health, int roomNr, int playerGold) {
         this.name = name;
         this.health = health;
         this.roomNr = roomNr;
         this.playerGold = playerGold;
-        
-    }
-  
-    public List<Accessories> getNewList() {
-        return newList;
+        this.inventory = new ArrayList<>();
     }
 
-    public void setNewList(List<Accessories> newList) {
-        this.newList = newList;
+    public List<Accessories> getInventory() {
+        return inventory;
     }
-
-    public Accessories[] getPickUp() {
-        return pickUp;
-    }
-
-    public void setPickUp(Accessories[] pickUp) {
-        this.pickUp = pickUp;
-    }
-    
-    
-    
-    
 
     
     public int getPlayerGold() {
@@ -112,8 +76,6 @@ public class Player extends Inventory{
         return location;
     }
 
-    void getName(String named) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+ 
 
 }
