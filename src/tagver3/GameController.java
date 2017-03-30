@@ -241,12 +241,6 @@ public class GameController {
     }
     
     
-    
-    public void showPlayerItems(Player n1){
-            System.out.println("You currently have "+n1.getPickUp().length+" items");
-           for(int i = 0; i < n1.getPickUp().length; i++) {
-            System.out.println(n1.getPickUp()[i].getName());
-        }
-    }
+ 
 
 }
