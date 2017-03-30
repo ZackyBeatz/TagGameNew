@@ -7,8 +7,9 @@ import java.util.Scanner;
  * @author BendikteEva
  */
 public class Boundery {
-
   
+    String itemchoice;
+    String helpInput;
     String named;
 
     public void intro() {
@@ -54,12 +55,29 @@ public class Boundery {
         System.out.println("Press:\n"
                 + "'n' for north, 's' for south, 'e' for east, 'w' for west\n");
     }
+  
     public void helpMenu() {
+
         System.out.println("Help Menu");
         System.out.println("Type 'exit' to get back to game");
         System.out.println("Type 'gold' to see how much gold you've collected so far.");
         System.out.println("Type 'health' to see your current health status");
         System.out.println("Type 'quit' to end the game.");
+        System.out.println("Type 'sack' to see items in your backpack");
+        Scanner scanHelp = new Scanner(System.in);
+        helpInput = scanHelp.nextLine();
     }
 
+    public void rucksackOptions() {
+
+        Scanner itemchoose = new Scanner(System.in);
+        System.out.println("itemlist is empty so far and this line is deleted when i know how to put stuff in rucksack");
+        //if (listsize>=1) {
+        System.out.println("Choose an item by typing it's name");//}
+  
+        //if (listisempty){ System.out.println("Backback is empty");}
+        System.out.println("Type 'help' to get back to help-menu");
+        itemchoice = itemchoose.nextLine();
+
+    }
 }
