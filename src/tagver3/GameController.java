@@ -62,7 +62,7 @@ public class GameController {
 
                     String brugerInput = userInput.nextLine();
                     if (brugerInput.equalsIgnoreCase("help")) {
-                        help();
+                        Help();
                     }
 
                     // ROOM NORTH
@@ -135,15 +135,14 @@ public class GameController {
         n1.setLocation(nextRoom);
 
         n1.setRoomNr(n1.getLocation().getCurrentRoom());
-        
-        
-        
+       
         
         // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
-        n1.setPickUp(n1.getLocation().getRoomItem());
+       // n1.setPickUp(n1.getLocation().getRoomItem());
         
         // ACCESSING THE FIRST ITEM ON THE ARRAY OF ITEMS PICKED UP FROM A ROOM
-        n1.getPickUp()[0].getHeal();
+       // n1.getPickUp()[0].getHeal();
+       //n1.getPickUp()[0].getName();
 
         int gold = nextRoom.getGold();
         int health = n1.getHealth();
@@ -158,27 +157,38 @@ public class GameController {
 
     }
 
-    public void help() {
+   public void Help() {
+
         b.helpMenu();
-        Scanner scanHelp = new Scanner(System.in);
-        helpInput = scanHelp.nextLine();
-        if (helpInput.equalsIgnoreCase("exit")) {
+        
+        if (b.helpInput.equalsIgnoreCase("exit")) {
             invalidInput = true;
             System.out.println("You are still in room " + n1.getRoomNr());
         }
-        if (helpInput.equalsIgnoreCase("gold")) {
+        if (b.helpInput.equalsIgnoreCase("gold")) {
             System.out.println("You have collected:  " + n1.getPlayerGold() + " gold pieces");
+             Help();
         }
-
-        if (helpInput.equalsIgnoreCase("health")) {
+        
+        if (b.helpInput.equalsIgnoreCase("health")) {
             System.out.println("Your health is at:  " + n1.getHealth() + " %");
+             Help();
         }
-        if (helpInput.equalsIgnoreCase("quit")) {
+        
+        if (b.helpInput.equalsIgnoreCase("quit")) {
             gameOver();
             System.exit(0);
         }
-
-        invalidInput = false;
+        if (b.helpInput.equalsIgnoreCase("sack")) {
+            //display items in rucksack here
+            b.rucksackOptions();
+            if (b.itemchoice.equalsIgnoreCase("help")) {
+                Help();
+                //if (b.itemchoice is valid) {
+                // return item;
+            }
+            invalidInput = false;
+        }
     }
 
     public void restartGame() {
