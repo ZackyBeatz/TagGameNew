@@ -180,8 +180,15 @@ public class GameController {
             System.exit(0);
         }
         if (b.helpInput.equalsIgnoreCase("sack")) {
+            
             //display items in rucksack here
             b.rucksackOptions();
+            if (b.itemchoice.equalsIgnoreCase("items")){
+             n1.getItemAt(0).getName();   
+            }
+                
+            
+            
             if (b.itemchoice.equalsIgnoreCase("help")) {
                 Help();
                 //if (b.itemchoice is valid) {
