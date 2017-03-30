@@ -18,7 +18,7 @@ public class Room {
     private Room south;
     private final String description;
     private int gold;
-    private Accessories[] roomItem;
+    private Accessories roomItem;
     
     public int getGold() {
         return gold;
@@ -45,11 +45,11 @@ public class Room {
         return currentRoom;
     }
 
-    public Accessories[] getRoomItem() {
+    public Accessories getRoomItem() {
         return roomItem;
     }
 
-    public void setRoomItem(Accessories[] roomItem) {
+    public void setRoomItem(Accessories roomItem) {
         this.roomItem = roomItem;
     }
 

@@ -17,7 +17,7 @@ public class Inventory {
     
     public Inventory(){
     
-    };
+    }
     
     public void addItem(Accessories a1){
         int slot = findFreeSlot();
@@ -39,18 +39,15 @@ public class Inventory {
 
             return null;
      }
-    
-    
+   
      public Accessories getItemAt(int index) {
             return items[index];
      }
 
-    
      public int getInventorySize() {
              return MAX_INVENTORY;
      }
-    
-    
+     
      private int findFreeSlot() {
           for (int i=0;i<items.length;i++) {
                if (items[i] == null) {

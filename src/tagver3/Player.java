@@ -7,7 +7,27 @@ import java.util.List;
  *
  * @author Zack
  */
-public class Player {
+public class Player extends Inventory{
+
+    @Override
+    public int getInventorySize() {
+        return super.getInventorySize(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Accessories getItemAt(int index) {
+        return super.getItemAt(index); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Accessories removeItem(Accessories item) {
+        return super.removeItem(item); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void addItem(Accessories a1) {
+        super.addItem(a1); //To change body of generated methods, choose Tools | Templates.
+    }
 
     String name;
     int health;

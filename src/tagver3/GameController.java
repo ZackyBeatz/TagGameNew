@@ -186,14 +186,15 @@ public class GameController {
             b.rucksackOptions(n1);
             
             if (b.itemchoice.equalsIgnoreCase("items")){
+                
                 for (int i = 0; i < n1.getInventorySize(); i++) {
-                    System.out.println("itemlist:\n"
+                    System.out.println("itemlist:\n"    
                         + "1. " + n1.getItemAt(i).getName());
                     
-               b.rucksackOptions(n1);
-                    
+             
+                    break;
                 }
-              
+                b.rucksackOptions(n1);
                 
               System.out.println("Choose an item by typing it's name");//}
       

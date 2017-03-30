@@ -11,25 +11,17 @@ public class TextBasedGame {
      */
     public static void main(String[] args) {
        
-//        GameController g = new GameController();
-//        Boundery b = new Boundery();
-//
-//        b.askNamed();
-//        b.intro();
-//        g.runGame();
+      GameController g = new GameController();
+     Boundery b = new Boundery();
 
-         Inventory in1 = new Inventory();
-         Accessories a1 = new Accessories("Sword", "Fire");
-         Accessories a2 = new Accessories("Gun", "Fire");
-         
-         in1.addItem(a1);
-         in1.addItem(a2);
-         
-         in1.removeItem(a1);
+        b.askNamed();
+       b.intro();
+     g.runGame();
+
+       
          
          
-         
-         System.out.println(in1.getItemAt(0).getName());
+       
     
 
     }

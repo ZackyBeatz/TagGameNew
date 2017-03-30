@@ -124,16 +124,25 @@ public class RoomFactory {
         
         // DOOR 1
         
-        roomMatrix[0][0].setRoomItem(mixItems1);
+        roomMatrix[0][0].setRoomItem(newItems[0]);
         // DOOR 2
-        //roomMatrix[0][1].setRoomItem(newItems[1]);
+       roomMatrix[0][1].setRoomItem(newItems[0]);
+       
         // DOOR 3
+        roomMatrix[0][2].setRoomItem(newItems[1]);
         // DOOR 4
+        roomMatrix[1][0].setRoomItem(newItems[1]);
         // DOOR 5
+        roomMatrix[1][1].setRoomItem(newItems[2]);
         // DOOR 6
+        roomMatrix[1][2].setRoomItem(newItems[1]);
         // DOOR 7
+       roomMatrix[2][0].setRoomItem(newItems[1]);
         // DOOR 8
+        roomMatrix[2][1].setRoomItem(newItems[0]);
         // DOOR 9
+        roomMatrix[2][2].setRoomItem(newItems[2]);
+        
         
         return roomMatrix;
     }

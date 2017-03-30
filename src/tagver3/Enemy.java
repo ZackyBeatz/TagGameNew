@@ -60,7 +60,4 @@ public class Enemy extends Player{
         this.health = health;
     }
     
-    
-   
-    
 }
