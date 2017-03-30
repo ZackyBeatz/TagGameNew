@@ -28,7 +28,7 @@ public class Enemy extends Player{
         super(name, health, location, roomNr, playerGold);
     }
     
-    private void enemyHit(Player n1){
+    public void enemyHit(Player n1){
         n1.setHealth(n1.getHealth()-enemyDamage);
     }
 

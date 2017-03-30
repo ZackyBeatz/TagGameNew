@@ -1,5 +1,6 @@
 package tagver3;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -17,14 +18,13 @@ public class GameController {
     String name = b.named;
     Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
     boolean gamerun;
-    
-  
+   
 
     public void runGame() {
-       
-        
+      
         b.chooseRoomStart();
-
+        
+        
         Scanner rumA = new Scanner(System.in);
         String enterchoice = rumA.next();
 
@@ -213,6 +213,15 @@ public class GameController {
 
         System.out.println("Bye  " + name + "  Game Over");
 
+    }
+    
+    
+    
+    public void showPlayerItems(){
+            System.out.println("You currently have "+n1.getPickUp().length+" items");
+           for(int i = 0; i < n1.getPickUp().length; i++) {
+            System.out.println(n1.getPickUp()[i].getName());
+        }
     }
 
 }

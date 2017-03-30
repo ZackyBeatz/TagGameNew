@@ -37,6 +37,7 @@ public class AccessFactory {
         itemArr[0].setDamage(8);
         itemArr[1] = new Accessories("Gun", "A Gun that has a high damage on x type of enemy");
         itemArr[1].setDamage(10);
+        
         itemArr[2] = new Accessories("Heal Potion", "Heals player");
         itemArr[2].setHeal(10);
         
