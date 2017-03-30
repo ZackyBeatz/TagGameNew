@@ -135,7 +135,7 @@ public class GameController {
         n1.setLocation(nextRoom);
 
         n1.setRoomNr(n1.getLocation().getCurrentRoom());
-       n1.addItem(n1.getLocation().getRoomItem());
+       
        
         // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
        // n1.setPickUp(n1.getLocation().getRoomItem());
@@ -150,8 +150,7 @@ public class GameController {
         nextRoom.setGold(0);
         
         n1.setHealth(health - 10);
-        System.out.println("you find:  "+n1.getItemAt(0).getName()+"\n");
-        System.out.println("" + n1.getLocation() + "you find:  "+n1.getItemAt(0).getName()+"\n");
+       
         
         System.out.println("You found " + gold + " gold coins" + "\n");
         //System.out.println("Your health is " + n1.getHealth() + "\n");
@@ -187,13 +186,7 @@ public class GameController {
             
             if (b.itemchoice.equalsIgnoreCase("items")){
                 
-                for (int i = 0; i < n1.getInventorySize(); i++) {
-                    System.out.println("itemlist:\n"    
-                        + "1. " + n1.getItemAt(i).getName());
-                    
-             
-                    break;
-                }
+                
                 b.rucksackOptions(n1);
                 
               System.out.println("Choose an item by typing it's name");//}
