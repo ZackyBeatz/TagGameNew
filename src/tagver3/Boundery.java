@@ -77,6 +77,7 @@ public class Boundery {
   
         //if (listisempty){ System.out.println("Backback is empty");}
         System.out.println("Type 'help' to get back to help-menu");
+        System.out.println("Type 'items' to see items");
         itemchoice = itemchoose.nextLine();
 
     }
