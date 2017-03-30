@@ -68,17 +68,14 @@ public class Boundery {
         helpInput = scanHelp.nextLine();
     }
 
-    public void rucksackOptions() {
+    public void rucksackOptions(Player n1) {
 
         Scanner itemchoose = new Scanner(System.in);
-        System.out.println("itemlist is empty so far and this line is deleted when i know how to put stuff in rucksack");
-        //if (listsize>=1) {
-        System.out.println("Choose an item by typing it's name");//}
-  
-        //if (listisempty){ System.out.println("Backback is empty");}
+        
         System.out.println("Type 'help' to get back to help-menu");
         System.out.println("Type 'items' to see items");
-        itemchoice = itemchoose.nextLine();
+        //if (listsize>=1) { System.out.println("itemlist:\n"
+       itemchoice = itemchoose.nextLine();
 
     }
 }
