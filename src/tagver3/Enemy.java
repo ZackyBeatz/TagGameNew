@@ -25,7 +25,8 @@ public class Enemy extends Player{
     
     // UNNECCESARY ROOMNR, AND PLAYERGOLD FOR ENEMY.  I EXTENDED FROM PLAYER 
     public Enemy(String name, int health, Room location, int roomNr, int playerGold) {
-        super(name, health, location, roomNr, playerGold);
+        super(name, health, roomNr, playerGold);
+        super.setLocation(location);
     }
     
     public void enemyHit(Player n1){

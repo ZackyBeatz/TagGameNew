@@ -15,13 +15,13 @@ public class GameController {
     Room[][] roomMatrix = new RoomFactory().createRooms();
     String helpInput;
     Boundery b = new Boundery();
-    String name = b.named;
-    Player n1 = new Player(name, 100, roomMatrix[0][0], 1, 0);
+//    String name = b.named;
+    
     boolean gamerun;
    
 
-    public void runGame() {
-      
+    public void runGame(Player n1) {
+        n1.setLocation(roomMatrix[0][0]);
         b.chooseRoomStart();
         
         
@@ -43,10 +43,10 @@ public class GameController {
             while (game) {
                 
                 if (n1.getRoomNr() == 9) {
-                    System.out.println("You won");
+                    System.out.println(n1.getName() + ", You won");
                     System.out.println("You collected " + n1.getPlayerGold() + " gold coins" + "\n"
                             + "--------------------------------------------------------------------");
-                    restartGame();
+                    restartGame(n1);
                 }
 
                 invalidInput = true;
@@ -54,7 +54,7 @@ public class GameController {
                     if (n1.getHealth() < 1) {
 
                         System.out.println("You Died. Game Over");
-                        restartGame();
+                        restartGame(n1);
 
                     }
                  
@@ -62,7 +62,7 @@ public class GameController {
 
                     String brugerInput = userInput.nextLine();
                     if (brugerInput.equalsIgnoreCase("help")) {
-                        Help();
+                        Help(n1);
                     }
 
                     // ROOM NORTH
@@ -116,13 +116,13 @@ public class GameController {
 
         // after the into player was asked if he was a coward or not this is if he was a coward and ends the game. 
         if (enterchoice.equals("0")) {
-            gameOver();
+            gameOver(n1);
             gamerun = false;
 
         }
         if (!(enterchoice.equals("0") || enterchoice.equals("1"))) {
             System.out.println("Say what!");
-            runGame();
+            runGame(n1);
         }
 
     }
@@ -158,7 +158,7 @@ public class GameController {
 
     }
 
-   public void Help() {
+   public void Help(Player n1) {
 
         b.helpMenu();
         
@@ -168,16 +168,16 @@ public class GameController {
         }
         if (b.helpInput.equalsIgnoreCase("gold")) {
             System.out.println("You have collected:  " + n1.getPlayerGold() + " gold pieces");
-             Help();
+             Help(n1);
         }
         
         if (b.helpInput.equalsIgnoreCase("health")) {
             System.out.println("Your health is at:  " + n1.getHealth() + " %");
-             Help();
+             Help(n1);
         }
         
         if (b.helpInput.equalsIgnoreCase("quit")) {
-            gameOver();
+            gameOver(n1);
             System.exit(0);
         }
         if (b.helpInput.equalsIgnoreCase("sack")) {
@@ -205,7 +205,7 @@ public class GameController {
                 
             
             if (b.itemchoice.equalsIgnoreCase("help")) {
-                Help();
+                Help(n1);
                 //if (b.itemchoice is valid) {
                 // return item;
             }
@@ -213,7 +213,7 @@ public class GameController {
         }
     }
 
-    public void restartGame() {
+    public void restartGame(Player n1) {
 
         Scanner exitopt = new Scanner(System.in);
         System.out.println("Do you wanna play again? Press 1 for yes og 2 for no");
@@ -236,20 +236,20 @@ public class GameController {
 
         } else {
             System.out.println("Wrong Answer, the answer is '1' for yes or '2' for no!\n");
-            restartGame();
+            restartGame(n1);
         }
 
     }
 
-    public void gameOver() {
+    public void gameOver(Player n1) {
 
-        System.out.println("Bye  " + name + "  Game Over");
+        System.out.println("Bye  " + n1.getName() + "  Game Over");
 
     }
     
     
     
-    public void showPlayerItems(){
+    public void showPlayerItems(Player n1){
             System.out.println("You currently have "+n1.getPickUp().length+" items");
            for(int i = 0; i < n1.getPickUp().length; i++) {
             System.out.println(n1.getPickUp()[i].getName());

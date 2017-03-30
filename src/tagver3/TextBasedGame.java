@@ -14,9 +14,11 @@ public class TextBasedGame {
       GameController g = new GameController();
      Boundery b = new Boundery();
 
-        b.askNamed();
-       b.intro();
-     g.runGame();
+        String name = b.askNamed();
+        Player n1 = new Player(name, 100, 1, 0);
+        
+       b.intro(n1);
+     g.runGame(n1);
 
        
          

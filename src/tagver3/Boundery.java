@@ -10,11 +10,11 @@ public class Boundery {
   
     String itemchoice;
     String helpInput;
-    String named;
+//    String named;
 
-    public void intro() {
+    public void intro(Player n1) {
 
-        System.out.println(">> Hello " + named + " " + "Welcome to Text Based Adventure Game! <<\n "
+        System.out.println(">> Hello " + n1.getName() + " " + "Welcome to Text Based Adventure Game! <<\n "
                 + "--------------------------------------------------------------------\n");
         System.out.println("The objective of this game is to find your way through\n"
                 + "the dungeon and collect as much gold as possible. \n\n"
@@ -32,13 +32,13 @@ public class Boundery {
                 + "n\n\n\"--------------------------------------------------------------------");
     }
 
-    public void askNamed() {
+    public String askNamed() {
 
         Scanner nameInput = new Scanner(System.in);
         System.out.println("Hi there. What's your name? ");
-        named = nameInput.nextLine();
+        String named = nameInput.nextLine();
         named = named.toUpperCase();
-
+        return named;
     }
 
     public void chooseRoomStart() {

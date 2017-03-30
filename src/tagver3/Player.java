@@ -37,10 +37,9 @@ public class Player extends Inventory{
     private Accessories[] pickUp;
     private List <Accessories> newList;
     
-    public Player(String name, int health, Room location,  int roomNr, int playerGold) {
+    public Player(String name, int health, int roomNr, int playerGold) {
         this.name = name;
         this.health = health;
-        this.location = location;
         this.roomNr = roomNr;
         this.playerGold = playerGold;
         
