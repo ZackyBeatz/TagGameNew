@@ -1,5 +1,6 @@
 package tagver3;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,25 +15,29 @@ public class Player{
     private Room location;
     private int roomNr;
     private int playerGold;
-    private Accessories[] pickUp;
-    private List <Accessories> inventory;
+    private Items  backpack=new Items();
+
+    public Items getBackpack(ArrayList<Items> list) {
+        return backpack;
+    }
+
+   // public void setBackpack(Items backpack) {
+      //  this.backpack = backpack;
+    //}
     
     public Player(String name, int health, int roomNr, int playerGold) {
         this.name = name;
         this.health = health;
         this.roomNr = roomNr;
         this.playerGold = playerGold;
-        this.inventory = new ArrayList<>();
+        
     }
 
-    public List<Accessories> getInventory() {
-        return inventory;
-    }
-
-    
     public int getPlayerGold() {
         return playerGold;
     }
+
+    
 
     public void setPlayerGold(int playerGold) {
         this.playerGold = playerGold;

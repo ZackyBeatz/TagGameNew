@@ -1,7 +1,12 @@
 package tagver3;
 
+
 import java.util.List;
 import java.util.Scanner;
+import tagver3.ItemsFactories.Armor;
+import tagver3.ItemsFactories.HealingPotions;
+import tagver3.ItemsFactories.PrettyDolls;
+import tagver3.ItemsFactories.Weapons;
 
 /**
  *
@@ -10,21 +15,19 @@ import java.util.Scanner;
 public class GameController {
 
     private boolean invalidInput = true;
-   
-    
+
     Room[][] roomMatrix = new RoomFactory().createRooms();
     String helpInput;
     Boundery b = new Boundery();
-//    String name = b.named;
-    
+  
+
+
     boolean gamerun;
-   
 
     public void runGame(Player n1) {
         n1.setLocation(roomMatrix[0][0]);
         b.chooseRoomStart();
-        
-        
+
         Scanner rumA = new Scanner(System.in);
         String enterchoice = rumA.next();
 
@@ -41,7 +44,7 @@ public class GameController {
             // initalise room
             game = true;
             while (game) {
-                
+
                 if (n1.getRoomNr() == 9) {
                     System.out.println(n1.getName() + ", You won");
                     System.out.println("You collected " + n1.getPlayerGold() + " gold coins" + "\n"
@@ -57,7 +60,7 @@ public class GameController {
                         restartGame(n1);
 
                     }
-                 
+
                     b.chooseDirection();
 
                     String brugerInput = userInput.nextLine();
@@ -69,6 +72,7 @@ public class GameController {
                     if (brugerInput.charAt(0) == 'n') {
                         if (n1.getLocation().getNorth() != null) {
                             direction(n1, n1.getLocation().getNorth());
+                            System.out.println(n1.getLocation());
                         } // IF NO ROOM TO THAT DIRECTION
                         else {
                             System.out.println("No room north for room " + n1.getRoomNr() + "\n"
@@ -126,81 +130,94 @@ public class GameController {
         }
 
     }
-    
 
     private void direction(Player n1, Room nextRoom) {
         invalidInput = false;
 
         // sætter vores ny position for spilleren
         n1.setLocation(nextRoom);
-
         n1.setRoomNr(n1.getLocation().getCurrentRoom());
-       
-       
-        // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
-       // n1.setPickUp(n1.getLocation().getRoomItem());
         
+        
+        // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
+      // n1.setInventory(n1.getLocation().getRoomItem());
         // ACCESSING THE FIRST ITEM ON THE ARRAY OF ITEMS PICKED UP FROM A ROOM
-       // n1.getPickUp()[0].getHeal();
-       //n1.getPickUp()[0].getName();
-
+        
         int gold = nextRoom.getGold();
         int health = n1.getHealth();
+        
+        HealingPotions item1 =nextRoom.getRoomItem1();
+        Weapons item2 = nextRoom.getRoomItem2();
+        Armor item3 = nextRoom.getRoomItem3();
+        PrettyDolls item4 = nextRoom.getRoomItem4();
+        
         n1.setPlayerGold(n1.getPlayerGold() + gold);
         nextRoom.setGold(0);
-        
         n1.setHealth(health - 10);
+      
+       
+       System.out.println("" + n1.getLocation() + "\n");
+        System.out.println("You found " + gold + " gold coins and \n");
+        
        
         
-        System.out.println("You found " + gold + " gold coins" + "\n");
-        //System.out.println("Your health is " + n1.getHealth() + "\n");
+        if(item1!=null){
+        System.out.println(""+item1+"  \n");
+        
+        }
+        if(item2!=null){
+        System.out.println(""+item2+"  \n");
+        }
+        if(item3!=null) {
+        System.out.println(""+item3+"  \n");
+        }
+        if (item4!=null) {
+        System.out.println(""+item4+"  \n");
+        }   
+        
 
     }
+ 
+    public void Help(Player n1) {
 
-   public void Help(Player n1) {
-
-        b.helpMenu();
+        b.helpMenu(n1);
         
+// We might consider a switch case thingy here it might be prettier
+
         if (b.helpInput.equalsIgnoreCase("exit")) {
             invalidInput = true;
             System.out.println("You are still in room " + n1.getRoomNr());
         }
         if (b.helpInput.equalsIgnoreCase("gold")) {
             System.out.println("You have collected:  " + n1.getPlayerGold() + " gold pieces");
-             Help(n1);
+            Help(n1);
         }
-        
+
         if (b.helpInput.equalsIgnoreCase("health")) {
             System.out.println("Your health is at:  " + n1.getHealth() + " %");
-             Help(n1);
+            Help(n1);
         }
-        
+
         if (b.helpInput.equalsIgnoreCase("quit")) {
             gameOver(n1);
             System.exit(0);
         }
         if (b.helpInput.equalsIgnoreCase("sack")) {
             
-            //display items in rucksack here
             b.rucksackOptions(n1);
             
-            if (b.itemchoice.equalsIgnoreCase("items")){
+            // nested if statements not pretty
+            if (b.itemchoice.equalsIgnoreCase("items")) {
+               
+                System.out.println("");
                 
-                
+                //display items in rucksack here
                 b.rucksackOptions(n1);
                 
-              System.out.println("Choose an item by typing it's name");//}
-      
-       
-        
-        
             }
-                
-            
             if (b.itemchoice.equalsIgnoreCase("help")) {
                 Help(n1);
-                //if (b.itemchoice is valid) {
-                // return item;
+                
             }
             invalidInput = false;
         }
@@ -209,26 +226,22 @@ public class GameController {
     public void restartGame(Player n1) {
 
         Scanner exitopt = new Scanner(System.in);
-        System.out.println("Do you wanna play again? Press 1 for yes og 2 for no");
+        System.out.println("Do you wanna play again? Type 'Yes' for yes og 'No' for no");
         String startover = exitopt.nextLine();
 
-        if (startover.equalsIgnoreCase("2")) {
-            System.out.println("Thank you for playing!");
+        if (startover.equalsIgnoreCase("no")) {
+            System.out.println("Thank you for playing  "+n1.getName()+" !");
             System.exit(0);
         }
 
-        if (startover.equalsIgnoreCase("1")) {
+        if (startover.equalsIgnoreCase("yes")) {
             n1.setHealth(100);
             n1.setLocation(roomMatrix[0][0]);
-            Class<? extends Room[][]> aClass;
-            aClass = roomMatrix.getClass();
             n1.setRoomNr(1);
-            System.out.println(n1.getRoomNr() + "  " + n1.getLocation() + "\n"
-                    + "--------------------------------------------------------------------");
+            System.out.println(n1.getRoomNr() + "  " + n1.getLocation());
             gamerun = true;
 
         } else {
-            System.out.println("Wrong Answer, the answer is '1' for yes or '2' for no!\n");
             restartGame(n1);
         }
 
@@ -239,8 +252,5 @@ public class GameController {
         System.out.println("Bye  " + n1.getName() + "  Game Over");
 
     }
-    
-    
- 
 
 }

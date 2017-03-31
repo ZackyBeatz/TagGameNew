@@ -5,6 +5,16 @@
  */
 package tagver3;
 
+
+import tagver3.ItemsFactories.Armor;
+import tagver3.ItemsFactories.ArmorFactory;
+import tagver3.ItemsFactories.HealingPotions;
+import tagver3.ItemsFactories.HealingPotionsFactory;
+import tagver3.ItemsFactories.PrettyDolls;
+import tagver3.ItemsFactories.PrettyDollsFactory;
+import tagver3.ItemsFactories.WeaponsFactory;
+import tagver3.ItemsFactories.Weapons;
+
 /**
  *
  * @author Zack
@@ -15,14 +25,16 @@ public class RoomFactory {
 
         // initalise room
         Room[][] roomMatrix = new Room[3][3];
-       
-        Accessories[] newItems = new AccessFactory().createItems();
-        Accessories[] mixItems1 = new AccessFactory().mixedItems1();
-      
+
+        HealingPotions[] newPotions = new HealingPotionsFactory().createPotions();
+        Weapons[] newWeapon = new WeaponsFactory().defineWeapons();
+        Armor[] newArmor = new ArmorFactory().defineArmor();
+     PrettyDolls[] newDoll = new PrettyDollsFactory().doll();
+
         // initalise position for each room
         roomMatrix[0][0] = new Room(1, "\n"
-                    + "--------------------------------------------------------------------\n"
-                            + "You are in the entrance room.\n "
+                + "--------------------------------------------------------------------\n"
+                + "You are in the entrance room.\n "
                 + "You find some gold and pick it up \n"
                 + "Suddenly you hear a large crash and see a lot of dust coming\n"
                 + "out of the tunnel you just left. \n"
@@ -31,52 +43,52 @@ public class RoomFactory {
                 + "--------------------------------------------------------------------", 3);
 
         roomMatrix[0][1] = new Room(2, "\n"
-                    + "--------------------------------------------------------------------\n"
-                            + "Your enter a large room. It is so large\n"
+                + "--------------------------------------------------------------------\n"
+                + "Your enter a large room. It is so large\n"
                 + "that you can hear the ecco of your breathing.\n"
                 + "You find more some goldcoins and automatically pick them up.\n"
                 + "There at two doors in this room.\n"
                 + "One headed north and one headed west.\n"
                 + "--------------------------------------------------------------------", 6);
 
-        roomMatrix[0][2] = new Room(3,"\n"
-                    + "--------------------------------------------------------------------\n"
+        roomMatrix[0][2] = new Room(3, "\n"
+                + "--------------------------------------------------------------------\n"
                 + "This a long, and narrow room. You can\n"
                 + "choose an opening west or one south.\n"
                 + " --------------------------------------------------------------------", 8);
 
         roomMatrix[1][0] = new Room(4, "\n"
-                    + "--------------------------------------------------------------------\n"
+                + "--------------------------------------------------------------------\n"
                 + "You are know entering a small room. It \n"
                 + "has an opening to the east and one to the west.\n"
                 + "--------------------------------------------------------------------", 4);
 
         roomMatrix[1][1] = new Room(5, "\n"
-                    + "--------------------------------------------------------------------\n"
+                + "--------------------------------------------------------------------\n"
                 + "In this room you see an old chair \n "
                 + "and two openings. Choose south or east.\n"
                 + "--------------------------------------------------------------------", 9);
 
-        roomMatrix[1][2] = new Room(6,"\n"
-                    + "--------------------------------------------------------------------\n"
+        roomMatrix[1][2] = new Room(6, "\n"
+                + "--------------------------------------------------------------------\n"
                 + "Now you find a room with a statue of an angel\n"
                 + "There are 3 openings. Go east, north or south.\n"
                 + "--------------------------------------------------------------------", 7);
 
-        roomMatrix[2][0] = new Room(7,"\n"
-                    + "--------------------------------------------------------------------\n"
+        roomMatrix[2][0] = new Room(7, "\n"
+                + "--------------------------------------------------------------------\n"
                 + "It looks as you have entered a tomb. \n"
                 + "This room contains a large coffin. You can flee either to  \n"
                 + "the north or the west.\n"
                 + "--------------------------------------------------------------------", 6);
         roomMatrix[2][1] = new Room(8, "\n"
-                    + "--------------------------------------------------------------------\n"
+                + "--------------------------------------------------------------------\n"
                 + "In this room the walls are sloping. \n"
                 + "You can choose between a south or a west opening.\n"
                 + "--------------------------------------------------------------------", 4);
 
-        roomMatrix[2][2] = new Room(9,"\n"
-                    + "--------------------------------------------------------------------\n"
+        roomMatrix[2][2] = new Room(9, "\n"
+                + "--------------------------------------------------------------------\n"
                 + "You are almost blinded by the light of the outside world.\n"
                 + "--------------------------------------------------------------------", 5);
 
@@ -117,36 +129,46 @@ public class RoomFactory {
         // door 9
         roomMatrix[2][2].setEast(roomMatrix[2][0]);
         // door west == victory ???;
-        
-        
+
         // SET ITEMS ON EACH ROOM 
         // PROBLEM ?? SO FAR I CAN ONLY HAVE ONE ITEM PER ROOM
+        // DOOR 1 Items
+        roomMatrix[0][0].setRoomItem(newPotions[0]);
+        roomMatrix[0][0].setRoomItem2(newWeapon[0]);
+        roomMatrix[0][0].setRoomItem4(newDoll[0]);
         
-        // DOOR 1
+        // DOOR 2 items
+        roomMatrix[0][1].setRoomItem(newPotions[0]);
+        roomMatrix[0][1].setRoomItem4(newDoll[3]);
+        roomMatrix[0][1].setRoomItem3(newArmor[1]);
         
-        roomMatrix[0][0].setRoomItem(newItems[0]);
-        // DOOR 2
-       roomMatrix[0][1].setRoomItem(newItems[0]);
+        // DOOR 3 items
+        roomMatrix[0][2].setRoomItem3(newArmor[0]);
+        
+        // DOOR 4 items
+        roomMatrix[1][0].setRoomItem(newPotions[1]);
+        roomMatrix[1][0].setRoomItem2(newWeapon[1]);
+        
+        // DOOR 5 items
+        roomMatrix[1][1].setRoomItem2(newWeapon[1]);
+        roomMatrix[1][1].setRoomItem4(newDoll[4]);
+        
+        // DOOR 6 items
+        roomMatrix[1][2].setRoomItem4(newDoll[2]);
+        roomMatrix[1][2].setRoomItem(newPotions[2]);
+        // DOOR 7 items
+        roomMatrix[2][0].setRoomItem3(newArmor[1]);
+        roomMatrix[2][0].setRoomItem4(newDoll[1]);
        
-        // DOOR 3
-        roomMatrix[0][2].setRoomItem(newItems[1]);
-        // DOOR 4
-        roomMatrix[1][0].setRoomItem(newItems[1]);
-        // DOOR 5
-        roomMatrix[1][1].setRoomItem(newItems[2]);
-        // DOOR 6
-        roomMatrix[1][2].setRoomItem(newItems[1]);
-        // DOOR 7
-       roomMatrix[2][0].setRoomItem(newItems[1]);
-        // DOOR 8
-        roomMatrix[2][1].setRoomItem(newItems[0]);
-        // DOOR 9
-        roomMatrix[2][2].setRoomItem(newItems[2]);
+        // DOOR 8 items
+        roomMatrix[2][1].setRoomItem4(newDoll[1]);
+        roomMatrix[2][1].setRoomItem2(newWeapon[0]);
         
+        // DOOR 9 items 
+        roomMatrix[2][2].setRoomItem(newPotions[2]);
         
+
         return roomMatrix;
     }
-    
-    
-    
+
 }

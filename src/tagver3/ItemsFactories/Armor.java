@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tagver3;
+package tagver3.ItemsFactories;
+
+import tagver3.Items;
 
 /**
  *
@@ -11,6 +13,21 @@ package tagver3;
  */
 public class Armor extends Items {
 
+   
+    private int protect;
+    String descriptionarmor;
+    String armorname;
+    
+    
+    public int getProtect() {
+        return protect;
+    }
+
+    public void setProtect(int protect) {
+        this.protect = protect;
+    }
+   
+   
     public String getDescriptionarmor() {
         return descriptionarmor;
     }
@@ -19,25 +36,13 @@ public class Armor extends Items {
         this.descriptionarmor = descriptionarmor;
     }
 
-    public Armor(int armor, String descriptionarmor, String armorname) {
-        this.armor = armor;
+    public Armor(int protect, String descriptionarmor, String armorname) {
+        this.protect = protect;
         this.descriptionarmor = descriptionarmor;
         this.armorname = armorname;
     }
 
-    private int armor;
-    
-    String descriptionarmor;
-    String armorname;
-
-    
-    public int getArmor() {
-        return armor;
-    }
-
-    public void setArmor(int armor) {
-        this.armor = armor;
-    }
+  
 
     public String getArmorname() {
         return armorname;
@@ -46,14 +51,13 @@ public class Armor extends Items {
     public void setArmorname(String armorname) {
         this.armorname = armorname;
     }
-
-   
-
-@Override
-        public String toString() {
-        return "Armor{" + "armor=" + armor + '}';
+ @Override
+    public String toString() {
+        return "  " + descriptionarmor + "  " + armorname + "Decrease attack by:  " + protect;
     }
+  
 
+ 
 
 
   

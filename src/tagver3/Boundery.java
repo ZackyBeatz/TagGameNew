@@ -56,7 +56,7 @@ public class Boundery {
                 + "'n' for north, 's' for south, 'e' for east, 'w' for west\n");
     }
   
-    public void helpMenu() {
+    public void helpMenu(Player n1) {
 
         System.out.println("Help Menu");
         System.out.println("Type 'exit' to get back to game");
@@ -73,9 +73,10 @@ public class Boundery {
         Scanner itemchoose = new Scanner(System.in);
         
         System.out.println("Type 'help' to get back to help-menu");
-        System.out.println("Type 'items' to see items");
-        //if (listsize>=1) { System.out.println("itemlist:\n"
+        System.out.println("Choose an item by typing it's name");//}
+       
        itemchoice = itemchoose.nextLine();
+       
 
     }
 }
