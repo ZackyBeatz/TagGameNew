@@ -156,10 +156,9 @@ public class GameController {
         n1.setHealth(health - 10);
       
        
-       System.out.println("" + n1.getLocation() + "\n");
-        System.out.println("You found " + gold + " gold coins and \n");
+       System.out.println("You found " + gold + " gold coins and \n");
         
-       
+   
         
         if(item1!=null){
         System.out.println(""+item1+"  \n");
@@ -175,7 +174,9 @@ public class GameController {
         System.out.println(""+item4+"  \n");
         }   
         
-
+        
+        //System.out.println("" + n1.getLocation() + "\n");
+        
     }
  
     public void Help(Player n1) {
@@ -196,6 +197,10 @@ public class GameController {
         if (b.helpInput.equalsIgnoreCase("health")) {
             System.out.println("Your health is at:  " + n1.getHealth() + " %");
             Help(n1);
+        }
+        
+        if (b.helpInput.equalsIgnoreCase("search")){
+            Search(n1, n1.getLocation());
         }
 
         if (b.helpInput.equalsIgnoreCase("quit")) {
@@ -252,5 +257,44 @@ public class GameController {
         System.out.println("Bye  " + n1.getName() + "  Game Over");
 
     }
+    
+     private void Search(Player n1, Room nextRoom){  
+        
+        
+       invalidInput = false;
+
+        // sætter vores ny position for spilleren
+        n1.setLocation(nextRoom);
+        n1.setRoomNr(n1.getLocation().getCurrentRoom());
+        
+        // SETTING THE ARRAY OF ITEMS FROM ROOM TO PLAYER PICKUP
+      // n1.setInventory(n1.getLocation().getRoomItem());
+        // ACCESSING THE FIRST ITEM ON THE ARRAY OF ITEMS PICKED UP FROM A ROOM
+        
+        HealingPotions item1 =nextRoom.getRoomItem1();
+        Weapons item2 = nextRoom.getRoomItem2();
+        Armor item3 = nextRoom.getRoomItem3();
+        PrettyDolls item4 = nextRoom.getRoomItem4();
+        
+        
+       System.out.println("You found: \n");
+        
+  
+        if(item1!=null){
+        System.out.println(""+item1+"  \n");
+        
+        }
+        if(item2!=null){
+        System.out.println(""+item2+"  \n");
+        }
+        if(item3!=null) {
+        System.out.println(""+item3+"  \n");
+        }
+        if (item4!=null) {
+        System.out.println(""+item4+"  \n");
+        }   
+        
+     }
+        
 
 }
