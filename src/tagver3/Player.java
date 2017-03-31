@@ -1,8 +1,13 @@
 package tagver3;
 
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -81,6 +86,20 @@ public class Player{
         return location;
     }
 
+          public void HighScores() {
+              
+              
+                  try {
+                      PrintWriter print = new PrintWriter("HighScores.txt");
+                      print.println("High scores:"+name+"  "+getPlayerGold());
+                FileWriter writer;
+                writer = new FileWriter("C:/Users/Ejer/Desktop/Datamatiker/TagGame2/TagGameNew/src/tagver3/HighScores.txt", true);
+                System.out.println("High scores:"+name+"  "+getPlayerGold());
+            } catch (IOException ex) {
+                Logger.getLogger(TextBasedGame.class.getName()).log(Level.SEVERE, null, ex);
+                ex.printStackTrace();
+               
+            }
  
-
+          }
 }

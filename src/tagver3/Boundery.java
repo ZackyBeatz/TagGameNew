@@ -60,6 +60,7 @@ public class Boundery {
 
         System.out.println("Help Menu");
         System.out.println("Type 'exit' to get back to game");
+        System.out.println("Type 'search' to search the room");
         System.out.println("Type 'gold' to see how much gold you've collected so far.");
         System.out.println("Type 'health' to see your current health status");
         System.out.println("Type 'quit' to end the game.");

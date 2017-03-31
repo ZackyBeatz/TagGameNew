@@ -49,6 +49,7 @@ public class GameController {
                     System.out.println(n1.getName() + ", You won");
                     System.out.println("You collected " + n1.getPlayerGold() + " gold coins" + "\n"
                             + "--------------------------------------------------------------------");
+                    n1.HighScores();
                     restartGame(n1);
                 }
 
@@ -57,6 +58,7 @@ public class GameController {
                     if (n1.getHealth() < 1) {
 
                         System.out.println("You Died. Game Over");
+                        n1.HighScores();
                         restartGame(n1);
 
                     }
@@ -255,13 +257,13 @@ public class GameController {
     public void gameOver(Player n1) {
 
         System.out.println("Bye  " + n1.getName() + "  Game Over");
+        
 
     }
     
      private void Search(Player n1, Room nextRoom){  
-        
-        
-       invalidInput = false;
+        Scanner putinsack = new Scanner (System.in);
+        invalidInput = false;
 
         // sætter vores ny position for spilleren
         n1.setLocation(nextRoom);
@@ -294,6 +296,16 @@ public class GameController {
         System.out.println(""+item4+"  \n");
         }   
         
+         System.out.println("Do you want to put any of these items in your backpack?");
+         String putinyes = putinsack.nextLine();
+         
+         
+         if (putinyes.equalsIgnoreCase("yes")){
+             
+             System.out.println("You have added some items to your backpack");
+         }
+         
+         
      }
         
 
