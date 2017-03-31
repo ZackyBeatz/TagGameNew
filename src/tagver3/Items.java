@@ -11,7 +11,17 @@ public class Items {
     private int amount;
     private int damage;
     private int heal;
-    
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
     
     
     public int getDamage() {

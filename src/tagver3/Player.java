@@ -18,18 +18,13 @@ public class Player{
     String name;
     int health;
     private Room location;
+
+ 
     private int roomNr;
     private int playerGold;
-    private Items  backpack=new Items();
+    private ArrayList <Items> backPack = new ArrayList<>();
 
-    public Items getBackpack(ArrayList<Items> list) {
-        return backpack;
-    }
-
-   // public void setBackpack(Items backpack) {
-      //  this.backpack = backpack;
-    //}
-    
+   
     public Player(String name, int health, int roomNr, int playerGold) {
         this.name = name;
         this.health = health;
@@ -102,4 +97,9 @@ public class Player{
             }
  
           }
+          
+          
+    public ArrayList<Items> getBackPack() {
+        return backPack;
+    }
 }
