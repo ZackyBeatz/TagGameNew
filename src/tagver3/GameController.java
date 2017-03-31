@@ -210,8 +210,10 @@ public class GameController {
             System.exit(0);
         }
         if (b.helpInput.equalsIgnoreCase("sack")) {
-            
+            printBackPack(n1);
             b.rucksackOptions(n1);
+            
+            
             
             // nested if statements not pretty
             if (b.itemchoice.equalsIgnoreCase("items")) {
@@ -301,12 +303,31 @@ public class GameController {
          
          
          if (putinyes.equalsIgnoreCase("yes")){
+               if(item1!=null){
+               n1.getBackPack().add(item1);
+               }
+               if(item2!=null){
+               n1.getBackPack().add(item2);
+               }
+               if(item3!=null) {
+               n1.getBackPack().add(item3);
+               }
+               if (item4!=null) {
+               n1.getBackPack().add(item4);
+               }
              
              System.out.println("You have added some items to your backpack");
          }
          
          
+       
+         
      }
         
+       public static void printBackPack(Player n1){
+             for (int i = 0; i < n1.getBackPack().size(); i++) {
+                 System.out.println(n1.getBackPack().get(i).toString());
+             }
+         }
 
 }
