@@ -1,5 +1,7 @@
 package tagver3;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,15 +25,25 @@ public class TextBasedGame {
         b.intro(n1);
         g.runGame(n1);
         
+    
      
-            
-
-        
-           
-         
-      
-           
         }
+    
+    
+    public static void printMethod(){
+        try {
+            String text = "Your sample content to save in a text file.";
+            BufferedWriter out = new BufferedWriter(new FileWriter("C:\\Users\\Zack\\Documents\\TextBasedGame\\sample.txt"));
+            out.write(text);
+            out.close();
+        }
+        catch (IOException e)
+        {
+            System.out.println("Exception ");       
+        }
+
+        return ;
+    }
 }
         
 
